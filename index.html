@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parsa's Portfolio</title>
-    <link rel="icon" href="https://parsahamd.github.io/favicon.png">
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -71,13 +75,6 @@
             50%       { transform: translate(30px,30px) rotate(5deg); }
         }
         .hero-content { max-width: 800px; z-index: 1; text-align: center; }
-        .wip-badge {
-            display: inline-block; padding: 0.5rem 1rem;
-            background: rgba(102,126,234,0.1); border: 1px solid #667eea;
-            color: #667eea; border-radius: 5px; font-size: 0.9rem; font-weight: 600;
-            margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px;
-            animation: fadeInUp 1s ease;
-        }
         .hero h1 {
             font-size: 4rem; margin-bottom: 1rem;
             background: linear-gradient(135deg, #667eea 0%, #10b981 100%);
@@ -208,6 +205,7 @@
         }
         .slide.active { opacity: 1; }
         .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .slide video { width: 100%; height: 100%; object-fit: cover; display: block; }
         .slide-placeholder {
             width: 100%; height: 100%;
             display: flex; flex-direction: column;
@@ -317,9 +315,10 @@
         </div>
         <div class="drawer-body">
             <div class="slideshow">
-                <div class="slide active"><img src="screenshots/project1-1.png" alt="Screenshot 1" onerror="this.parentElement.innerHTML='<div class=&quot;slide-placeholder&quot;><span>🦋</span><p>project1-1.png</p></div>'"></div>
-                <div class="slide"><img src="screenshots/project1-2.png" alt="Screenshot 2" onerror="this.parentElement.innerHTML='<div class=&quot;slide-placeholder&quot;><span>🎮</span><p>project1-2.png</p></div>'"></div>
-                <div class="slide"><img src="screenshots/project1-3.png" alt="Screenshot 3" onerror="this.parentElement.innerHTML='<div class=&quot;slide-placeholder&quot;><span>✨</span><p>project1-3.png</p></div>'"></div>
+                <div class="slide active"><img src="screenshots/render%201.png" alt="Render 1"></div>
+                <div class="slide"><img src="screenshots/render%202.png" alt="Render 2"></div>
+                <div class="slide"><img src="screenshots/render%203.png" alt="Render 3"></div>
+                <div class="slide"><video src="screenshots/Video%201.mp4" controls muted loop playsinline preload="none" poster="screenshots/render%201.png"></video></div>
                 <button class="slide-btn prev">&#8249;</button>
                 <button class="slide-btn next">&#8250;</button>
             </div>
@@ -327,6 +326,7 @@
                 <div class="dot active" data-dot="0"></div>
                 <div class="dot" data-dot="1"></div>
                 <div class="dot" data-dot="2"></div>
+                <div class="dot" data-dot="3"></div>
             </div>
             <p class="project-detail-title">About the Project</p>
             <p class="project-detail-text">
@@ -338,7 +338,7 @@
             </p>
             <div class="detail-divider"></div>
             <div class="detail-meta">
-                <div class="detail-meta-item"><span>📅</span><span>2024</span></div>
+                <div class="detail-meta-item"><span>📅</span><span>2025</span></div>
                 <div class="detail-meta-item"><span>🎓</span><span>Computer Graphics Course</span></div>
                 <div class="detail-meta-item"><span>👤</span><span>Solo project</span></div>
             </div>
@@ -360,9 +360,9 @@
         </div>
         <div class="drawer-body">
             <div class="slideshow">
-                <div class="slide active"><img src="screenshots/project2-1.png" alt="Screenshot 1" onerror="this.parentElement.innerHTML='<div class=&quot;slide-placeholder&quot;><span>🎮</span><p>project2-1.png</p></div>'"></div>
-                <div class="slide"><img src="screenshots/project2-2.png" alt="Screenshot 2" onerror="this.parentElement.innerHTML='<div class=&quot;slide-placeholder&quot;><span>🕹️</span><p>project2-2.png</p></div>'"></div>
-                <div class="slide"><img src="screenshots/project2-3.png" alt="Screenshot 3" onerror="this.parentElement.innerHTML='<div class=&quot;slide-placeholder&quot;><span>🌟</span><p>project2-3.png</p></div>'"></div>
+                <div class="slide active"><img src="screenshots/project2-1.png" alt="Screenshot 1"></div>
+                <div class="slide"><img src="screenshots/project2-2.png" alt="Screenshot 2"></div>
+                <div class="slide"><img src="screenshots/project2-3.png" alt="Screenshot 3"></div>
                 <button class="slide-btn prev">&#8249;</button>
                 <button class="slide-btn next">&#8250;</button>
             </div>
@@ -400,9 +400,9 @@
         </div>
         <div class="drawer-body">
             <div class="slideshow">
-                <div class="slide active"><img src="screenshots/project3-1.png" alt="Screenshot 1" onerror="this.parentElement.innerHTML='<div class=&quot;slide-placeholder&quot;><span>🔬</span><p>project3-1.png</p></div>'"></div>
-                <div class="slide"><img src="screenshots/project3-2.png" alt="Screenshot 2" onerror="this.parentElement.innerHTML='<div class=&quot;slide-placeholder&quot;><span>🧬</span><p>project3-2.png</p></div>'"></div>
-                <div class="slide"><img src="screenshots/project3-3.png" alt="Screenshot 3" onerror="this.parentElement.innerHTML='<div class=&quot;slide-placeholder&quot;><span>⚙️</span><p>project3-3.png</p></div>'"></div>
+                <div class="slide active"><img src="screenshots/project3-1.png" alt="Screenshot 1"></div>
+                <div class="slide"><img src="screenshots/project3-2.png" alt="Screenshot 2"></div>
+                <div class="slide"><img src="screenshots/project3-3.png" alt="Screenshot 3"></div>
                 <button class="slide-btn prev">&#8249;</button>
                 <button class="slide-btn next">&#8250;</button>
             </div>
@@ -448,7 +448,6 @@
     <!-- HERO -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <div class="wip-badge">🚧 Portfolio Under Update - Coming March 2026</div>
             <h1>Hi, I'm Parsa</h1>
             <p>Full Stack Developer | Designer | Technical Artist</p>
             <a href="#projects" class="cta-button">View My Projects</a>
@@ -466,8 +465,7 @@
                 <p>Feel free to explore the projects I've crafted—I've gathered them all here on this site, and I can't wait to share my work with you!</p>
             </div>
             <div class="about-image">
-                <img src="IMG_20260119_223643.jpg" alt="Parsa Hamdollahi"
-                     onerror="this.parentElement.innerHTML='<div class=&quot;about-image-placeholder&quot;>👨‍💻</div>'">
+                <img src="IMG_20260119_223643.jpg" alt="Parsa Hamdollahi">
             </div>
         </div>
     </section>
@@ -556,7 +554,7 @@
                 <h3>GitHub</h3>
                 <p>Check out my projects</p>
             </a>
-            <a href="/cdn-cgi/l/email-protection#5828392a2b393039353c183f35393134763b3735" class="contact-card">
+            <a href="mailto:parsahamd@gmail.com" class="contact-card">
                 <span class="contact-icon">✉️</span>
                 <h3>Email</h3>
                 <p>Send me a message</p>
@@ -565,10 +563,10 @@
     </section>
 
     <footer>
-        <p>&copy; 2025 Parsa Hamdollahi. Made with &lt;3.</p>
+        <p>&copy; 2025 Parsa Hamdollahi. Made with ♥.</p>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // ── Smooth scrolling ──
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -582,6 +580,17 @@
         window.addEventListener('scroll', () => {
             document.querySelector('.nav').style.background =
                 window.scrollY > 100 ? 'rgba(10,10,10,0.95)' : 'rgba(10,10,10,0.8)';
+        });
+
+        // ── Image error fallback (slideshow + about photo) ──
+        document.querySelectorAll('.slide img, .about-image img').forEach(img => {
+            img.addEventListener('error', () => {
+                const placeholder = document.createElement('div');
+                const isAbout = img.closest('.about-image');
+                placeholder.className = isAbout ? 'about-image-placeholder' : 'slide-placeholder';
+                placeholder.textContent = isAbout ? '👨‍💻' : '🖼️';
+                img.parentElement.replaceChildren(placeholder);
+            });
         });
 
         // ── DRAWER SYSTEM ──
@@ -600,9 +609,16 @@
             function goTo(n) {
                 slides[current].classList.remove('active');
                 dots[current].classList.remove('active');
+
+                const currentVideo = slides[current].querySelector('video');
+                if (currentVideo) currentVideo.pause();
+
                 current = (n + slides.length) % slides.length;
                 slides[current].classList.add('active');
                 dots[current].classList.add('active');
+
+                const nextVideo = slides[current].querySelector('video');
+                if (nextVideo) nextVideo.play().catch(() => {});
             }
 
             function startAuto() {
@@ -616,11 +632,9 @@
                 dot.addEventListener('click', () => { goTo(parseInt(dot.dataset.dot)); startAuto(); });
             });
 
-            // Attach open/close helpers directly on the element
             drawerEl._open  = () => { goTo(0); startAuto(); };
             drawerEl._close = () => { clearInterval(autoSlideTimer); autoSlideTimer = null; };
 
-            // Close button inside drawer
             drawerEl.querySelector('.drawer-close').addEventListener('click', closeDrawer);
         });
 
