@@ -604,7 +604,16 @@
             const dots   = [...drawerEl.querySelectorAll('.dot')];
             const prev   = drawerEl.querySelector('.slide-btn.prev');
             const next   = drawerEl.querySelector('.slide-btn.next');
+            const slideshow = drawerEl.querySelector('.slideshow');
+            const video  = drawerEl.querySelector('video');
             let current  = 0;
+            let hovered  = false;
+            let isOpen   = false;
+
+            function stopAuto() {
+                clearInterval(autoSlideTimer);
+                autoSlideTimer = null;
+            }
 
             function goTo(n) {
                 slides[current].classList.remove('active');
@@ -622,8 +631,13 @@
             }
 
             function startAuto() {
-                clearInterval(autoSlideTimer);
-                autoSlideTimer = setInterval(() => goTo(current + 1), 4000);
+                stopAuto();
+                if (!isOpen) return;
+                autoSlideTimer = setInterval(() => {
+                    const playing = slides[current].querySelector('video');
+                    if (hovered || (playing && !playing.paused && !playing.ended)) return;
+                    goTo(current + 1);
+                }, 4000);
             }
 
             prev.addEventListener('click', () => { goTo(current - 1); startAuto(); });
@@ -632,8 +646,24 @@
                 dot.addEventListener('click', () => { goTo(parseInt(dot.dataset.dot)); startAuto(); });
             });
 
-            drawerEl._open  = () => { goTo(0); startAuto(); };
-            drawerEl._close = () => { clearInterval(autoSlideTimer); autoSlideTimer = null; };
+            if (slideshow) {
+                slideshow.addEventListener('mouseenter', () => { hovered = true;  stopAuto(); });
+                slideshow.addEventListener('mouseleave', () => { hovered = false; startAuto(); });
+            }
+
+            if (video) {
+                video.addEventListener('play',  () => stopAuto());
+                video.addEventListener('pause', () => startAuto());
+                video.addEventListener('ended', () => startAuto());
+            }
+
+            drawerEl._open  = () => { isOpen = true;  goTo(0); startAuto(); };
+            drawerEl._close = () => {
+                isOpen  = false;
+                hovered = false;
+                stopAuto();
+                if (video) video.pause();
+            };
 
             drawerEl.querySelector('.drawer-close').addEventListener('click', closeDrawer);
         });
