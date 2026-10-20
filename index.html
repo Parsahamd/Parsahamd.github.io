@@ -263,6 +263,55 @@
         .skill-level { height: 8px; background: rgba(255,255,255,0.1); border-radius: 10px; margin-top: 1rem; overflow: hidden; }
         .skill-progress { height: 100%; background: linear-gradient(135deg, #667eea 0%, #10b981 100%); border-radius: 10px; }
 
+        /* WHAT I DO */
+        .what-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .what-card {
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 15px; padding: 2rem; text-align: center; transition: all 0.3s ease;
+        }
+        .what-card:hover { border-color: #10b981; transform: translateY(-8px); }
+        .what-card h3 { font-size: 1.3rem; margin-bottom: 0.75rem; color: #10b981; }
+        .what-card p { color: #a1a1aa; line-height: 1.7; }
+
+        /* FEATURED PROJECT */
+        .featured {
+            display: grid; grid-template-columns: 1.1fr 1fr; gap: 2.5rem;
+            align-items: center;
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 18px; padding: 2.5rem; margin-bottom: 3rem;
+        }
+        .featured-image { border-radius: 12px; overflow: hidden; }
+        .featured-image img { width: 100%; height: 100%; object-fit: cover; display: block; aspect-ratio: 16/9; }
+        .featured-content h3 { font-size: 1.8rem; color: #10b981; margin-bottom: 1rem; }
+        .featured-content p { color: #a1a1aa; line-height: 1.7; margin-bottom: 1.5rem; }
+        .featured-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+        .ghost-button {
+            display: inline-block; padding: 0.9rem 1.8rem;
+            border: 1px solid rgba(16,185,129,0.5); color: #10b981;
+            border-radius: 50px; font-weight: 600; cursor: pointer;
+            background: transparent; text-decoration: none; transition: all 0.3s ease; font-size: 1rem;
+        }
+        .ghost-button:hover { background: rgba(16,185,129,0.15); }
+
+        /* TOOLS */
+        .tools-row {
+            display: flex; flex-wrap: wrap; gap: 1rem;
+            justify-content: center; margin-top: 3rem;
+        }
+        .tool-chip {
+            padding: 0.8rem 1.8rem;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 50px; font-size: 1rem; font-weight: 500; color: #e4e4e7;
+            transition: all 0.3s ease;
+        }
+        .tool-chip:hover { border-color: #10b981; color: #10b981; transform: translateY(-3px); }
+
         /* ABOUT */
         .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 3rem; }
         .about-text { line-height: 1.8; color: #a1a1aa; }
@@ -295,7 +344,8 @@
             .hero p { font-size: 1.2rem; }
             .about-content { grid-template-columns: 1fr; }
             .nav-links { gap: 1rem; }
-            .projects-grid, .skills-grid { grid-template-columns: 1fr; }
+            .projects-grid, .skills-grid, .what-grid { grid-template-columns: 1fr; }
+            .featured { grid-template-columns: 1fr; }
             .skill-card, .skill-card:nth-child(4), .skill-card:nth-child(5) { grid-column: span 1; }
             .contact-links { grid-template-columns: 1fr; }
             .drawer { width: 100vw; }
@@ -310,7 +360,7 @@
     <!-- DRAWER: Project One -->
     <div class="drawer" id="drawer-1">
         <div class="drawer-header">
-            <h2>Project One</h2>
+            <h2>Hollow Knight: Catch the Fleas</h2>
             <button class="drawer-close">✕</button>
         </div>
         <div class="drawer-body">
@@ -355,7 +405,7 @@
     <!-- DRAWER: Project Two -->
     <div class="drawer" id="drawer-2">
         <div class="drawer-header">
-            <h2>Project Two</h2>
+            <h2>Unity Junior Programmer</h2>
             <button class="drawer-close">✕</button>
         </div>
         <div class="drawer-body">
@@ -515,9 +565,44 @@
         </div>
     </section>
 
+    <!-- WHAT I DO -->
+    <section id="whatido">
+        <h2 class="section-title">What I Do</h2>
+        <div class="what-grid">
+            <div class="what-card">
+                <div class="skill-icon">🎮</div>
+                <h3>Game Development</h3>
+                <p>Unity, C#, and URP — from prototype to a polished, published game on itch.io.</p>
+            </div>
+            <div class="what-card">
+                <div class="skill-icon">🎨</div>
+                <h3>3D Art & Animation</h3>
+                <p>Blender sculpting, modelling, texturing, and rendering.</p>
+            </div>
+            <div class="what-card">
+                <div class="skill-icon">🖥️</div>
+                <h3>Graphics Programming</h3>
+                <p>C++, OpenGL, and GLSL shaders for real-time rendering.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- PROJECTS -->
     <section id="projects">
         <h2 class="section-title">Featured Projects</h2>
+        <div class="featured">
+            <div class="featured-image">
+                <img src="screenshots/project3-1.png" alt="Leaf it To Me gameplay">
+            </div>
+            <div class="featured-content">
+                <h3>Leaf it To Me</h3>
+                <p>A cozy first-person leaf-raking game. Rake, blow, and hand-pick leaves across a golden-hour garden — sell them at the bin, repair broken vents, and upgrade your tools to clear every last corner. Built in Unity 6 with URP.</p>
+                <div class="featured-actions">
+                    <a href="https://parsahamd.itch.io/leaf-it-to-me" target="_blank" class="cta-button">&#9654; Play on itch.io</a>
+                    <button class="ghost-button" onclick="openDrawer('drawer-3')">View details</button>
+                </div>
+            </div>
+        </div>
         <div class="projects-grid">
             <div class="project-card" data-drawer="drawer-3">
                 <h3>Leaf it To Me</h3>
@@ -529,8 +614,8 @@
                 </div>
             </div>
             <div class="project-card" data-drawer="drawer-1">
-                <h3>Project One</h3>
-                <p>A Hollow Knight: Silksong catch the fleas.</p>
+                <h3>Hollow Knight: Catch the Fleas</h3>
+                <p>A C++/OpenGL fan game inspired by Hollow Knight: Silksong.</p>
                 <div class="project-tags">
                     <span class="tag">C++</span>
                     <span class="tag">OpenGL</span>
@@ -538,8 +623,8 @@
                 </div>
             </div>
             <div class="project-card" data-drawer="drawer-2">
-                <h3>Project Two</h3>
-                <p>Unity Junior Programmer.</p>
+                <h3>Unity Junior Programmer</h3>
+                <p>A Unity pathway project covering core game development.</p>
                 <div class="project-tags">
                     <span class="tag">C#</span>
                     <span class="tag">Unity</span>
@@ -557,40 +642,20 @@
         </div>
     </section>
 
-    <!-- SKILLS -->
+    <!-- TOOLS -->
     <section id="skills">
-        <h2 class="section-title">Skills & Expertise</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <div class="skill-icon">🎮</div>
-                <h3>Game & Engine Development</h3>
-                <p>Unity, C#, ShaderLab, Physics Integration</p>
-                <div class="skill-level"><div class="skill-progress" style="width:85%"></div></div>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon">🎨</div>
-                <h3>3D Modeling & Graphics</h3>
-                <p>Blender, OpenGL, GLSL, PBR Texturing</p>
-                <div class="skill-level"><div class="skill-progress" style="width:80%"></div></div>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon">⚙️</div>
-                <h3>Technical Programming</h3>
-                <p>Python, C++, Java, OOP Design Patterns</p>
-                <div class="skill-level"><div class="skill-progress" style="width:80%"></div></div>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon">🌐</div>
-                <h3>Web & Pipeline Tools</h3>
-                <p>Git, HTML/CSS, GitHub Pages, Technical Documentation</p>
-                <div class="skill-level"><div class="skill-progress" style="width:75%"></div></div>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon">💻</div>
-                <h3>Full Stack Development</h3>
-                <p>MongoDB, JavaScript, React, Node.js, Figma</p>
-                <div class="skill-level"><div class="skill-progress" style="width:70%"></div></div>
-            </div>
+        <h2 class="section-title">Tools & Technologies</h2>
+        <div class="tools-row">
+            <div class="tool-chip">Unity</div>
+            <div class="tool-chip">C#</div>
+            <div class="tool-chip">C++</div>
+            <div class="tool-chip">Blender</div>
+            <div class="tool-chip">OpenGL</div>
+            <div class="tool-chip">GLSL</div>
+            <div class="tool-chip">Git</div>
+            <div class="tool-chip">Python</div>
+            <div class="tool-chip">Java</div>
+            <div class="tool-chip">HTML/CSS</div>
         </div>
     </section>
 
