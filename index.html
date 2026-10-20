@@ -138,6 +138,25 @@
             border-radius: 20px; font-size: 0.85rem; color: #6ee7b7;
         }
 
+        /* BLENDER RENDERS */
+        .render-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .render-item {
+            border-radius: 12px; overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: #1a1a1f;
+            transition: all 0.3s ease;
+        }
+        .render-item:hover { border-color: #10b981; transform: translateY(-5px); }
+        .render-item img, .render-item video {
+            width: 100%; height: 100%; display: block;
+            aspect-ratio: 16/9; object-fit: cover;
+        }
+
         /* DRAWER OVERLAY */
         .drawer-overlay {
             position: fixed; inset: 0;
@@ -315,10 +334,9 @@
         </div>
         <div class="drawer-body">
             <div class="slideshow">
-                <div class="slide active"><img src="screenshots/render%201.png" alt="Render 1"></div>
-                <div class="slide"><img src="screenshots/render%202.png" alt="Render 2"></div>
-                <div class="slide"><img src="screenshots/render%203.png" alt="Render 3"></div>
-                <div class="slide"><video src="screenshots/Video%201.mp4" controls muted loop playsinline preload="none" poster="screenshots/render%201.png"></video></div>
+                <div class="slide active"><img src="screenshots/project1-1.png" alt="Screenshot 1"></div>
+                <div class="slide"><img src="screenshots/project1-2.png" alt="Screenshot 2"></div>
+                <div class="slide"><img src="screenshots/project1-3.png" alt="Screenshot 3"></div>
                 <button class="slide-btn prev">&#8249;</button>
                 <button class="slide-btn next">&#8250;</button>
             </div>
@@ -326,7 +344,6 @@
                 <div class="dot active" data-dot="0"></div>
                 <div class="dot" data-dot="1"></div>
                 <div class="dot" data-dot="2"></div>
-                <div class="dot" data-dot="3"></div>
             </div>
             <p class="project-detail-title">About the Project</p>
             <p class="project-detail-text">
@@ -392,43 +409,40 @@
         </div>
     </div>
 
-    <!-- DRAWER: Project Three -->
+    <!-- DRAWER: Leaf it To Me -->
     <div class="drawer" id="drawer-3">
         <div class="drawer-header">
-            <h2>Project Three</h2>
+            <h2>Leaf it To Me</h2>
             <button class="drawer-close">✕</button>
         </div>
         <div class="drawer-body">
             <div class="slideshow">
-                <div class="slide active"><img src="screenshots/project3-1.png" alt="Screenshot 1"></div>
-                <div class="slide"><img src="screenshots/project3-2.png" alt="Screenshot 2"></div>
-                <div class="slide"><img src="screenshots/project3-3.png" alt="Screenshot 3"></div>
+                <div class="slide active"><img src="screenshots/leaf-it-to-me.png" alt="Leaf it To Me cover" style="object-fit: contain; background: #141417;"></div>
                 <button class="slide-btn prev">&#8249;</button>
                 <button class="slide-btn next">&#8250;</button>
             </div>
             <div class="slide-dots">
                 <div class="dot active" data-dot="0"></div>
-                <div class="dot" data-dot="1"></div>
-                <div class="dot" data-dot="2"></div>
             </div>
+            <a href="https://parsahamd.itch.io/leaf-it-to-me" target="_blank" class="cta-button" style="display:block; text-align:center; margin:0.5rem 0 1.25rem;">&#9654; Play on itch.io</a>
             <p class="project-detail-title">About the Project</p>
             <p class="project-detail-text">
-                An advanced implementation of Cellular Automata in Java, exploring emergent complexity through
-                object-oriented design. The project simulates various rule sets including Conway's Game of Life and
-                custom automata, with a visual renderer to observe pattern evolution in real time. A deep dive into
-                OOP principles, algorithmic thinking, and simulation design.
+                A cozy first-person leaf-raking game built in Unity 6 with URP. Rake, blow, and hand-pick leaves across a
+                golden-hour garden, sell them at the bin, repair broken vents, and upgrade your tools to clear every last
+                corner. Features a full economy, save system, tutorial, and win condition — a complete, playable portfolio
+                demo. Free to download on itch.io.
             </p>
             <div class="detail-divider"></div>
             <div class="detail-meta">
-                <div class="detail-meta-item"><span>📅</span><span>2023</span></div>
-                <div class="detail-meta-item"><span>🎓</span><span>OOP Course</span></div>
+                <div class="detail-meta-item"><span>📅</span><span>2026</span></div>
+                <div class="detail-meta-item"><span>🎓</span><span>Personal Portfolio</span></div>
                 <div class="detail-meta-item"><span>👤</span><span>Solo project</span></div>
             </div>
             <div class="detail-tags">
-                <span class="tag">Java</span>
-                <span class="tag">OOP</span>
-                <span class="tag">Simulation</span>
-                <span class="tag">Algorithms</span>
+                <span class="tag">C#</span>
+                <span class="tag">Unity</span>
+                <span class="tag">URP</span>
+                <span class="tag">Game Design</span>
             </div>
         </div>
     </div>
@@ -440,6 +454,7 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#blender">3D Art</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -493,13 +508,26 @@
                 </div>
             </div>
             <div class="project-card" data-drawer="drawer-3">
-                <h3>Project Three</h3>
-                <p>Advanced Cellular Automata.</p>
+                <h3>Leaf it To Me</h3>
+                <p>A cozy first-person leaf-raking game, playable on itch.io.</p>
                 <div class="project-tags">
-                    <span class="tag">Java</span>
-                    <span class="tag">OOP</span>
+                    <span class="tag">C#</span>
+                    <span class="tag">Unity</span>
+                    <span class="tag">URP</span>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- BLENDER RENDERS -->
+    <section id="blender">
+        <h2 class="section-title">Blender Renders</h2>
+        <p style="text-align:center; color:#a1a1aa; margin-top:-1.5rem; margin-bottom:1rem;">3D modelling, rendering, and animation work in Blender.</p>
+        <div class="render-grid">
+            <div class="render-item"><img src="screenshots/render%201.png" alt="Blender render 1"></div>
+            <div class="render-item"><img src="screenshots/render%202.png" alt="Blender render 2"></div>
+            <div class="render-item"><img src="screenshots/render%203.png" alt="Blender render 3"></div>
+            <div class="render-item"><video src="screenshots/Video%201.mp4" controls muted loop playsinline preload="none" poster="screenshots/render%201.png"></video></div>
         </div>
     </section>
 
