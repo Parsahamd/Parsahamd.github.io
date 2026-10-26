@@ -313,18 +313,10 @@
         .tool-chip:hover { border-color: #10b981; color: #10b981; transform: translateY(-3px); }
 
         /* ABOUT */
-        .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 3rem; }
+        .about-content { display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 800px; margin: 3rem auto 0; }
         .about-text { line-height: 1.8; color: #a1a1aa; }
         .about-text h3 { color: #e4e4e7; margin-bottom: 1rem; font-size: 1.5rem; }
         .about-text p { margin-bottom: 1rem; }
-        .about-image { width: 100%; height: 600px; border-radius: 15px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
-        .about-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .about-image-placeholder {
-            width: 100%; height: 100%;
-            background: linear-gradient(135deg, rgba(102,126,234,0.2) 0%, rgba(16,185,129,0.2) 100%);
-            display: flex; align-items: center; justify-content: center; font-size: 6rem;
-        }
-
         /* CONTACT */
         .contact-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 900px; margin: 3rem auto; }
         .contact-card {
@@ -343,7 +335,20 @@
             .hero h1 { font-size: 2.5rem; }
             .hero p { font-size: 1.2rem; }
             .about-content { grid-template-columns: 1fr; }
-            .nav-links { gap: 1rem; }
+            .nav { padding: 1rem 1.25rem; }
+            .nav .logo { flex-shrink: 0; }
+            .nav-links {
+                gap: 1.25rem;
+                flex: 1;
+                margin-left: 1rem;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                white-space: nowrap;
+                scroll-snap-type: x proximity;
+            }
+            .nav-links::-webkit-scrollbar { display: none; }
+            .nav-links li { flex-shrink: 0; scroll-snap-align: start; }
             .projects-grid, .skills-grid, .what-grid { grid-template-columns: 1fr; }
             .featured { grid-template-columns: 1fr; }
             .skill-card, .skill-card:nth-child(4), .skill-card:nth-child(5) { grid-column: span 1; }
@@ -559,9 +564,6 @@
                 <p>I graduated from Politecnico di Torino with a Bachelor's in Computer Engineering, and I'm now continuing my journey in the Graphics and Multimedia Master's program at the same university, diving deeper into the world of visual computing and digital creativity.</p>
                 <p>Feel free to explore the projects I've crafted—I've gathered them all here on this site, and I can't wait to share my work with you!</p>
             </div>
-            <div class="about-image">
-                <img src="IMG_20260119_223643.jpg" alt="Parsa Hamdollahi">
-            </div>
         </div>
     </section>
 
@@ -706,13 +708,12 @@
                 window.scrollY > 100 ? 'rgba(10,10,10,0.95)' : 'rgba(10,10,10,0.8)';
         });
 
-        // ── Image error fallback (slideshow + about photo) ──
-        document.querySelectorAll('.slide img, .about-image img').forEach(img => {
+        // ── Image error fallback (slideshow) ──
+        document.querySelectorAll('.slide img').forEach(img => {
             img.addEventListener('error', () => {
                 const placeholder = document.createElement('div');
-                const isAbout = img.closest('.about-image');
-                placeholder.className = isAbout ? 'about-image-placeholder' : 'slide-placeholder';
-                placeholder.textContent = isAbout ? '👨‍💻' : '🖼️';
+                placeholder.className = 'slide-placeholder';
+                placeholder.textContent = '🖼️';
                 img.parentElement.replaceChildren(placeholder);
             });
         });
